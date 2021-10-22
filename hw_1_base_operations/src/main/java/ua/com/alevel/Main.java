@@ -10,10 +10,18 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int application_temp,variant_number;
         do{
-            System.out.println("If you want to start application press 1, if tou want to exit press any other button");
+            System.out.println("If you want to start application type any integer number, if tou want to exit press 0");
+            while (!sc.hasNextInt()) {
+                System.out.println("That`s not an integer number!");
+                sc.next();
+            }
             application_temp = sc.nextInt();
-            if(application_temp !=1) break;
+            if(application_temp ==0) break;
             System.out.println("Please choose what exercise from 1 to 3 you want");
+            while (!sc.hasNextInt()) {
+                System.out.println("That`s not an integer number!");
+                sc.next();
+            }
             variant_number = sc.nextInt();
             switch (variant_number){
                 case(1):
@@ -29,6 +37,6 @@ public class Main {
                     System.out.println("Please next time choose number from 1 to 3");
             }
 
-        }while(application_temp==1);
+        }while(application_temp!=0);
     }
 }

@@ -10,11 +10,19 @@ public class StringsMain {
         Scanner sc = new Scanner(System.in);
         int application_temp, variant;
         do {
-            System.out.println("If you want to start application press 1, if tou want to exit press any other button");
+            System.out.println("If you want to start application press any number, if you want to exit press 0");
+            while (!sc.hasNextInt()) {
+                System.out.println("That`s not an integer number!");
+                sc.next();
+            }
             application_temp = sc.nextInt();
-            if (application_temp != 1) break;
+            if (application_temp == 0) break;
             System.out.println("Please choose what a number from 1 to 3.\n If you want reverse full line press 1.\n" +
-                    " If you want to reverse by substring in line press 2\n If you want to reverse by index press 3");
+                    " If you want to reverse by a substring in line press 2\n If you want to reverse by index press 3");
+            while (!sc.hasNextInt()) {
+                System.out.println("That`s not an integer number!");
+                sc.next();
+            }
             variant = sc.nextInt();
             switch (variant) {
                 case 1:
@@ -29,7 +37,7 @@ public class StringsMain {
                 default:
                     System.out.println("Please input correct number next time");
             }
-        } while (application_temp == 1);
+        } while (application_temp != 0);
     }
 
     private static void first_application() {
