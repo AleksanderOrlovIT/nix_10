@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UniqueNumbers {
-    public static int level1(String line) {
+    public static int Application_exit(String line) {
         int count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0;
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> myList = new ArrayList<>();
