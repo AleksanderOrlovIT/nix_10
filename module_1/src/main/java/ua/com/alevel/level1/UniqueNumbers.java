@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UniqueNumbers {
-    public static int Application_exit(String line) {
+    public static void Application1() {
         int count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0;
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> myList = new ArrayList<>();
         System.out.println("Please input line");
-        line = sc.nextLine();
+        String line = sc.nextLine();
         for (int i = 0; i < line.length(); i++) {
             if (Character.isDigit(line.charAt(i))) {
                 myList.add(Character.getNumericValue(line.charAt(i)));
@@ -28,7 +28,7 @@ public class UniqueNumbers {
             if (count8 == 0 && myList.get(i) == 8) count8 = 1;
             if (count9 == 0 && myList.get(i) == 9) count9 = 1;
         }
-        return (count0 + count1 + count2 + count3 + count4 + count5 + count6 + count7 + count8 + count9);
+        System.out.println(count0 + count1 + count2 + count3 + count4 + count5 + count6 + count7 + count8 + count9);
     }
 
 }

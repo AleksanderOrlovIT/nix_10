@@ -1,16 +1,18 @@
 package ua.com.alevel.level1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChessHorse {
     public static Scanner sc = new Scanner(System.in);
     public static Scanner scanner = new Scanner(System.in);
-    public static int [] numberArray = new int [4];
-    public static int [][] letterArray = new int [4][4];
+    public static ArrayList<Integer> numberList = new ArrayList<>();
+    public static ArrayList<String> letterList = new ArrayList<>();
 
-    public static void application3() {
+    public static void Application2() {
         int[][] chessBoard = new int[9][8];
         int letter_number = 0, number, decision, count = 1;
+        String string_number, string_letter_number;
         for (int i = 0; i < 8; i++) {
             chessBoard[0][i] = i + 1;
         }
@@ -31,25 +33,27 @@ public class ChessHorse {
             chessBoard[letter_number + 1][number - 1] = 0;
             do {
                 number = input_number();
-                for (int i = 0; i < numberArray.length; i++) {
-                    if (number == numberArray[i]) count--;
+                for (int i = 0; i < numberList.size(); i++) {
+                    if (number == numberList.get(i)) count--;
                 }
-                if (count >= 0) System.out.println("Please input one of the possible numbers");
-            } while (count >= 0);
-
+                string_number = Integer.toString(number);
+                if (count > 0) System.out.println("Please input one of the possible numbers");
+            } while (count > 0);
+            numberList.clear();
             count++;
             do {
                 letter_number = input_letter();
-                for (int i = 0; i < letterArray.length; i++) {
-                    for(int j=0;j<letterArray.length;j++) {
-                        if (letter_number == letterArray[i][j] && number == letterArray[i][j]) count--;
-                    }
+                string_letter_number = Integer.toString(letter_number);
+                String full_string=string_number+string_letter_number;
+                for (int i = 0; i < letterList.size(); i++) {
+                    if(full_string.equals(letterList.get(i))) count--;
                 }
                 if (count >= 0) System.out.println("Please input one of the possible letters");
-            } while (count >= 0);
+            } while (count > 0);
             count++;
             chessBoard[letter_number + 1][number - 1] = 1;
             printMethod(chessBoard);
+            letterList.clear();
         } while (decision == 1);
     }
 
@@ -66,72 +70,69 @@ public class ChessHorse {
 
     public static void replace_horse_info(int number, int letter_number) {
         String[] name = {" A ", " B ", " C ", " D ", " E ", " F ", " G ", " H ", " "};
-        numberArray[0] = 0;
-        numberArray[1] = 0;
-        numberArray[2] = 0;
-        numberArray[3] = 0;
-
-        letterArray[0][0]=0;
-        letterArray[0][1]=0;
-        letterArray[0][2]=0;
-        letterArray[1][0]=0;
-        letterArray[1][1]=0;
-        letterArray[1][2]=0;
-        letterArray[2][1]=0;
-        letterArray[2][2]=0;
-        letterArray[3][0]=0;
-        letterArray[3][1]=0;
-        letterArray[3][2]=0;
-
+        String temp1, temp2;
         if (number - 2 >= 1) {
             if (letter_number - 1 >= 0) {
                 System.out.print(number - 2 + name[letter_number - 1] + " ");
-                letterArray[0][1]=letter_number - 1;
-                numberArray[0] = letter_number - 1;
+                temp1 = Integer.toString(number - 2);
+                temp2 = Integer.toString(letter_number - 1);
+                letterList.add(temp1 + temp2);
             }
             if (letter_number + 1 < 8) {
                 System.out.print(number - 2 + name[letter_number + 1] + " ");
-                letterArray[0][2]=letter_number + 1;
-                numberArray[1] = letter_number + 1;
+                temp1 = Integer.toString(number - 2);
+                temp2 = Integer.toString(letter_number + 1);
+                letterList.add(temp1 + temp2);
             }
-            letterArray[0][0]=number - 2;
+            numberList.add(number - 2);
         }
-        if (number + 2 <= 7) {
+        if (number + 2 <= 8) {
             if (letter_number - 1 >= 0) {
                 System.out.print(number + 2 + name[letter_number - 1] + " ");
-                letterArray[1][1]=letter_number - 1;
-                numberArray[0] = letter_number - 1;
+                temp1 = Integer.toString(number + 2);
+                temp2 = Integer.toString(letter_number - 1);
+                letterList.add(temp1 + temp2);
             }
             if (letter_number + 1 < 8) {
                 System.out.print(number + 2 + name[letter_number + 1] + " ");
-                letterArray[1][2]=letter_number + 1;
-                numberArray[1] = letter_number + 1;
+                temp1 = Integer.toString(number + 2);
+                temp2 = Integer.toString(letter_number + 1);
+                letterList.add(temp1 + temp2);
             }
-            letterArray[1][0]=number + 2;
+            numberList.add(number + 2);
         }
         if (letter_number - 2 >= 0) {
             if (number - 1 >= 1) {
                 System.out.print(number - 1 + name[letter_number - 2] + " ");
-                letterArray[2][3]=number - 1;
+                numberList.add(number - 1);
+                temp1 = Integer.toString(number - 1);
+                temp2 = Integer.toString(letter_number - 2);
+                letterList.add(temp1 + temp2);
             }
             if (number + 1 <= 8) {
                 System.out.print(number + 1 + name[letter_number - 2] + " ");
-                letterArray[2][2]=number + 1;
+                numberList.add(number + 1);
+                temp1 = Integer.toString(number + 1);
+                temp2 = Integer.toString(letter_number - 2);
+                letterList.add(temp1 + temp2);
             }
-            letterArray[2][1]=letter_number - 2;
-            numberArray[2] = letter_number - 2;
+
         }
         if (letter_number + 2 <= 8) {
             if (number - 1 >= 1) {
                 System.out.print(number - 1 + name[letter_number + 2] + " ");
-                letterArray[3][2]=number - 1;
+                numberList.add(number - 1);
+                temp1 = Integer.toString(number - 1);
+                temp2 = Integer.toString(letter_number + 2);
+                letterList.add(temp1 + temp2);
             }
             if (number + 1 <= 8) {
                 System.out.print(number + 1 + name[letter_number + 2] + " ");
-                letterArray[3][1]=number + 1;
+                numberList.add(number + 1);
+                temp1 = Integer.toString(number + 1);
+                temp2 = Integer.toString(letter_number + 2);
+                letterList.add(temp1 + temp2);
             }
-            letterArray[3][0]=letter_number + 2;
-            numberArray[2] = letter_number - 2;
         }
     }
 
