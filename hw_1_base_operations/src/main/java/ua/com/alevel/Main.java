@@ -10,7 +10,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int application_temp,variant_number;
         do{
-            System.out.println("If you want to start application type any integer number, if tou want to exit press 0");
+            System.out.println("If you want to start application type any integer number, if you want to exit press 0");
             while (!sc.hasNextInt()) {
                 System.out.println("That`s not an integer number!");
                 sc.next();

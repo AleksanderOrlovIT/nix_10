@@ -9,52 +9,61 @@ public class ChessHorse {
     public static ArrayList<Integer> numberList = new ArrayList<>();
     public static ArrayList<String> letterList = new ArrayList<>();
 
-    public static void Application2() {
-        int[][] chessBoard = new int[9][8];
-        int letter_number = 0, number, decision, count = 1;
-        String string_number, string_letter_number;
-        for (int i = 0; i < 8; i++) {
-            chessBoard[0][i] = i + 1;
-        }
-        printMethod(chessBoard);
-        number = input_number();
-        letter_number = input_letter();
-        chessBoard[letter_number + 1][number - 1] = 1;
-        printMethod(chessBoard);
+    public static void ChessHorseMain() {
+        int temp;
         do {
-            replace_horse_info(number, letter_number);
-            System.out.println("");
-            System.out.println("If you want to continue programm press 1");
+            int[][] chessBoard = new int[9][8];
+            int letter_number = 0, number, decision, count = 1;
+            String string_number, string_letter_number;
+            for (int i = 0; i < 8; i++) {
+                chessBoard[0][i] = i + 1;
+            }
+            printMethod(chessBoard);
+            number = input_number();
+            letter_number = input_letter();
+            chessBoard[letter_number + 1][number - 1] = 1;
+            printMethod(chessBoard);
+            do {
+                replace_horse_info(number, letter_number);
+                System.out.println("");
+                System.out.println("If you want to continue programm press 1");
+                while (!sc.hasNextInt()) {
+                    sc.next();
+                }
+                decision = sc.nextInt();
+                if (decision != 1) break;
+                chessBoard[letter_number + 1][number - 1] = 0;
+                do {
+                    number = input_number();
+                    for (int i = 0; i < numberList.size(); i++) {
+                        if (number == numberList.get(i)) count--;
+                    }
+                    string_number = Integer.toString(number);
+                    if (count > 0) System.out.println("Please input one of the possible numbers");
+                } while (count > 0);
+                numberList.clear();
+                count++;
+                do {
+                    letter_number = input_letter();
+                    string_letter_number = Integer.toString(letter_number);
+                    String full_string = string_number + string_letter_number;
+                    for (int i = 0; i < letterList.size(); i++) {
+                        if (full_string.equals(letterList.get(i))) count--;
+                    }
+                    if (count >= 0) System.out.println("Please input one of the possible letters");
+                } while (count > 0);
+                count++;
+                chessBoard[letter_number + 1][number - 1] = 1;
+                printMethod(chessBoard);
+                letterList.clear();
+            } while (decision == 1);
+            System.out.println("If you want to restart the ChessHorse application press 1," +
+                    " otherwise press any other number");
             while (!sc.hasNextInt()) {
                 sc.next();
             }
-            decision = sc.nextInt();
-            if (decision != 1) break;
-            chessBoard[letter_number + 1][number - 1] = 0;
-            do {
-                number = input_number();
-                for (int i = 0; i < numberList.size(); i++) {
-                    if (number == numberList.get(i)) count--;
-                }
-                string_number = Integer.toString(number);
-                if (count > 0) System.out.println("Please input one of the possible numbers");
-            } while (count > 0);
-            numberList.clear();
-            count++;
-            do {
-                letter_number = input_letter();
-                string_letter_number = Integer.toString(letter_number);
-                String full_string=string_number+string_letter_number;
-                for (int i = 0; i < letterList.size(); i++) {
-                    if(full_string.equals(letterList.get(i))) count--;
-                }
-                if (count >= 0) System.out.println("Please input one of the possible letters");
-            } while (count > 0);
-            count++;
-            chessBoard[letter_number + 1][number - 1] = 1;
-            printMethod(chessBoard);
-            letterList.clear();
-        } while (decision == 1);
+            temp = sc.nextInt();
+        }while(temp == 1);
     }
 
     public static void printMethod(int table[][]) {

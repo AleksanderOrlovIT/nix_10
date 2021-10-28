@@ -2,13 +2,14 @@ package ua.com.alevel;
 
 import java.util.Scanner;
 
-import static ua.com.alevel.level1.ChessHorse.Application2;
-import static ua.com.alevel.level1.TriangleArea.Application3;
-import static ua.com.alevel.level1.UniqueNumbers.Application1;
+import static ua.com.alevel.level1.ChessHorse.ChessHorseMain;
+import static ua.com.alevel.level1.TriangleArea.TriangleAreaMain;
+import static ua.com.alevel.level1.UniqueNumbers.UniqueNumbersMain;
+import static ua.com.alevel.level2.CorrectBrackets.CorrectBracketsMain;
 
 public class Module1Main {
     public static void main(String[] args) {
-        int programmTemp=1,levelTemp,application_temp;
+        int programmTemp,levelTemp,application_temp;
         Scanner sc = new Scanner(System.in);
 
         do{
@@ -25,21 +26,37 @@ public class Module1Main {
                     }
                     application_temp = sc.nextInt();
                     switch (application_temp){
-                        case 1:Application1();
+                        case 1:
+                            UniqueNumbersMain();
                         break;
-                        case 2:Application2();
+                        case 2:
+                            ChessHorseMain();
                         break;
-                        case 3:Application3();
+                        case 3:
+                            TriangleAreaMain();
                         break;
                         default:System.out.println("Please input correct number from 1 to 3 next time");
                     }
                     break;
                 case 2:
-                case 3:
-                default:
-                    System.out.println("Please input correct number from 1 to 3 next time");
+                    System.out.println("Please choose exercise from 1 to 2");
+                    while(!sc.hasNextInt()){
+                        sc.next();
+                    }
+                    application_temp = sc.nextInt();
+                    switch (application_temp) {
+                        case 1:
+                            CorrectBracketsMain();
+                            break;
+                        case 2: break;
+                        default:System.out.println("Please input correct number from 1 to 2 next time");
+                    }
             }
-            System.out.println("If you want to continue application press 1 otherwise press any other button");
+            System.out.println("If you want to continue application press 1 otherwise press any other number");
+            while(!sc.hasNextInt()){
+                sc.next();
+            }
+            programmTemp = sc.nextInt();
         }while(programmTemp==1);
     }
 }
