@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static ua.com.alevel.level1.ChessHorse.ChessHorseMain;
 import static ua.com.alevel.level1.TriangleArea.TriangleAreaMain;
 import static ua.com.alevel.level1.UniqueNumbers.UniqueNumbersMain;
-import static ua.com.alevel.level2.BinaryTree.BinaryTreeMain;
+import static ua.com.alevel.level2.BinaryTree.BinaryTree.BinaryTreeMain;
 import static ua.com.alevel.level2.CorrectBrackets.CorrectBracketsMain;
 
 public class Module1Main {

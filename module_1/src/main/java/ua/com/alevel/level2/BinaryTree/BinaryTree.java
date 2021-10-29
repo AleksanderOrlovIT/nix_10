@@ -1,4 +1,4 @@
-package ua.com.alevel.level2;
+package ua.com.alevel.level2.BinaryTree;
 
 import java.util.Scanner;
 
