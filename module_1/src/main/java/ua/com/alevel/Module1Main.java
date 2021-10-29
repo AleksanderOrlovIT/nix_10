@@ -1,5 +1,7 @@
 package ua.com.alevel;
 
+import ua.com.alevel.level3.GameOfLife;
+
 import java.util.Scanner;
 
 import static ua.com.alevel.level1.ChessHorse.ChessHorseMain;
@@ -7,6 +9,7 @@ import static ua.com.alevel.level1.TriangleArea.TriangleAreaMain;
 import static ua.com.alevel.level1.UniqueNumbers.UniqueNumbersMain;
 import static ua.com.alevel.level2.BinaryTree.BinaryTree.BinaryTreeMain;
 import static ua.com.alevel.level2.CorrectBrackets.CorrectBracketsMain;
+import static ua.com.alevel.level3.GameOfLife.GameOfLifeMain;
 
 public class Module1Main {
     public static void main(String[] args) {
@@ -55,7 +58,9 @@ public class Module1Main {
                         default:System.out.println("Please input correct number from 1 to 2 next time");
                     }
                     break;
-                case 3:break;
+                case 3:
+                    GameOfLifeMain();
+                    break;
                 default:System.out.println("Please input correct number from 1 to 3 next time");
             }
             System.out.println("If you want to continue application press 1 otherwise press any other number");
@@ -65,4 +70,5 @@ public class Module1Main {
             programmTemp = sc.nextInt();
         }while(programmTemp==1);
     }
+
 }
