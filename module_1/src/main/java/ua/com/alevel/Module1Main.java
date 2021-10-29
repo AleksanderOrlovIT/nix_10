@@ -5,6 +5,7 @@ import java.util.Scanner;
 import static ua.com.alevel.level1.ChessHorse.ChessHorseMain;
 import static ua.com.alevel.level1.TriangleArea.TriangleAreaMain;
 import static ua.com.alevel.level1.UniqueNumbers.UniqueNumbersMain;
+import static ua.com.alevel.level2.BinaryTree.BinaryTreeMain;
 import static ua.com.alevel.level2.CorrectBrackets.CorrectBracketsMain;
 
 public class Module1Main {
@@ -48,9 +49,14 @@ public class Module1Main {
                         case 1:
                             CorrectBracketsMain();
                             break;
-                        case 2: break;
+                        case 2:
+                            BinaryTreeMain();
+                            break;
                         default:System.out.println("Please input correct number from 1 to 2 next time");
                     }
+                    break;
+                case 3:break;
+                default:System.out.println("Please input correct number from 1 to 3 next time");
             }
             System.out.println("If you want to continue application press 1 otherwise press any other number");
             while(!sc.hasNextInt()){
