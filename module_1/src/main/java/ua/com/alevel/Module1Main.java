@@ -15,7 +15,6 @@ public class Module1Main {
     public static void main(String[] args) {
         int programmTemp,levelTemp,application_temp;
         Scanner sc = new Scanner(System.in);
-
         do{
             System.out.println("Please decide what level you want from 1 to 3");
             while(!sc.hasNextInt()){

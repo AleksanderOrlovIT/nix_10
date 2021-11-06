@@ -11,7 +11,8 @@ public class GameOfLife {
     public static void GameOfLifeMain() {
         int restart_programm;
         do {
-            int line, column, repeat_action, change_element, zero_or_one_element, random_or_hand;
+            int line, column, repeat_action, change_element, zero_or_one_element;
+            int random_or_hand, runGameDecision, runGameCount;
             System.out.println("Please type what matrix size do you want");
             while (!sc.hasNextInt()) {
                 sc.next();
@@ -57,6 +58,26 @@ public class GameOfLife {
                     System.out.println("ChangedArray:");
                     printArray(next_array, line, column);
                 }
+                System.out.println("If you want to show the next generations non-stop press 1");
+                while (!sc.hasNextInt()) {
+                    sc.next();
+                }
+                runGameDecision = sc.nextInt();
+                if (runGameDecision == 1) {
+                    System.out.println("Please type how many times you want to see the next generations");
+                    while (!sc.hasNextInt()) {
+                        sc.next();
+                    }
+                    runGameCount = sc.nextInt();
+                    for (int i = 0; i < runGameCount; i++) {
+                        nextGeneration(array, line, column);
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 System.out.println("If you want to see the next generation press 1");
                 while (!sc.hasNextInt()) {
                     sc.next();
@@ -68,7 +89,7 @@ public class GameOfLife {
                 sc.next();
             }
             restart_programm = sc.nextInt();
-        }while(restart_programm==1);
+        } while (restart_programm == 1);
     }
 
 
@@ -134,7 +155,7 @@ public class GameOfLife {
                 sc.next();
             }
             restart_number = sc.nextInt();
-        }while(restart_number == 1);
+        } while (restart_number == 1);
     }
 
     public static void changeArrayToOne(int[][] array) {
@@ -157,7 +178,7 @@ public class GameOfLife {
                 sc.next();
             }
             restart_number = sc.nextInt();
-        }while(restart_number == 1);
+        } while (restart_number == 1);
     }
 
     public static int checkNeighbours(int[][] array, int line, int column) {
@@ -189,15 +210,15 @@ public class GameOfLife {
         return count_neighbours;
     }
 
-    public static void handFill(int[][] array, int line, int column){
+    public static void handFill(int[][] array, int line, int column) {
         for (int i = 0; i < line; i++) {
             for (int j = 0; j < column; j++) {
                 System.out.println("Please input element on line=" + i + "column=" + j);
-                while(!sc.hasNextInt()){
+                while (!sc.hasNextInt()) {
                     sc.next();
                 }
                 int temp = sc.nextInt();
-                if(temp != 0 && temp!=1) array[i][j] = 0;
+                if (temp != 0 && temp != 1) array[i][j] = 0;
                 else array[i][j] = temp;
             }
         }
