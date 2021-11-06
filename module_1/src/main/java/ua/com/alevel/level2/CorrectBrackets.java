@@ -9,7 +9,9 @@ public class CorrectBrackets {
         int restartTemp;
         do {
             int count = 0;
+            String result;
             Scanner sc = new Scanner(System.in);
+            System.out.println("Please input line with brackets");
             String text = sc.nextLine();
             HashMap<String, Integer> openBrackets = new HashMap<String, Integer>() {{
                 put("{", 0);
@@ -22,7 +24,8 @@ public class CorrectBrackets {
                 put(")", 2);
             }};
             Stack<String> stack = new Stack<>();
-            String result = "correct";
+            if(text.equals("")) result = "correct";
+            else result = "incorrect";
 
             for (int i = 0; i < text.length(); i++) {
                 Character character = text.charAt(i);

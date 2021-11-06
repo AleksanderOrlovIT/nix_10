@@ -20,12 +20,6 @@ public class TreeNode {
         return val;
     }
 
-
-    public void setValue(int value){
-        val = value;
-    }
-
-
     public TreeNode getLeft(){
         return left;
     }
