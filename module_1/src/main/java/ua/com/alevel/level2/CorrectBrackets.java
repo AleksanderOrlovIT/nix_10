@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class CorrectBrackets {
-    public static void CorrectBracketsMain(){
+
+    public static void CorrectBracketsMain() {
         int restartTemp;
         do {
             int count = 0;
@@ -24,7 +25,7 @@ public class CorrectBrackets {
                 put(")", 2);
             }};
             Stack<String> stack = new Stack<>();
-            if(text.equals("")) result = "correct";
+            if (text.equals("")) result = "correct";
             else result = "incorrect";
 
             for (int i = 0; i < text.length(); i++) {
@@ -60,10 +61,10 @@ public class CorrectBrackets {
             System.out.println(result);
             System.out.println("Please press 1 if you want to restart the CorrectBrackets application," +
                     " otherwise press any other number");
-            while(!sc.hasNextInt()){
+            while (!sc.hasNextInt()) {
                 sc.next();
             }
             restartTemp = sc.nextInt();
-        }while (restartTemp == 1);
+        } while (restartTemp == 1);
     }
 }

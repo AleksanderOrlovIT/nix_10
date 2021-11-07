@@ -1,10 +1,11 @@
-package ua.com.alevel.level2.BinaryTree;
+package ua.com.alevel.level2.binarytree;
 
 import java.util.Scanner;
 
 public class BinaryTree {
-    public static void BinaryTreeMain(){
-        int restart_number;
+
+    public static void binaryTreeMain() {
+        int restartNumber;
         do {
             int insert_number;
             Scanner sc = new Scanner(System.in);
@@ -17,10 +18,10 @@ public class BinaryTree {
             System.out.println("Depth of tree: " + tree.depth());
             tree.print();
             System.out.println("Please press 1 if you want to restart BinaryTree application");
-            while(!sc.hasNextInt()){
+            while (!sc.hasNextInt()) {
                 sc.next();
             }
-            restart_number = sc.nextInt();
-        }while(restart_number == 1);
+            restartNumber = sc.nextInt();
+        } while (restartNumber == 1);
     }
 }

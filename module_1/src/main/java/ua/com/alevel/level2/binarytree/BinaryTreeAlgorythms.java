@@ -1,6 +1,7 @@
-package ua.com.alevel.level2.BinaryTree;
+package ua.com.alevel.level2.binarytree;
 
 public class BinaryTreeAlgorythms {
+
     private TreeNode root;
 
     public void insert(int value) {
@@ -69,5 +70,4 @@ public class BinaryTreeAlgorythms {
             traversePreOrder(sb, paddingForBoth, pointerForRight, node.getRight());
         }
     }
-
 }

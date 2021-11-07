@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UniqueNumbers {
-    public static void UniqueNumbersMain() {
+
+    public static void uniqueNumbersMain() {
         int temp;
         do {
             int count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0;
@@ -33,10 +34,10 @@ public class UniqueNumbers {
             System.out.println(count0 + count1 + count2 + count3 + count4 + count5 + count6 + count7 + count8 + count9);
             System.out.println("If you want to restart UniqueNumbers application" +
                     " press 1 otherwise press any other number");
-            while(!sc.hasNextInt()){
+            while (!sc.hasNextInt()) {
                 sc.next();
             }
             temp = sc.nextInt();
-        }while(temp==1);
+        } while (temp == 1);
     }
 }

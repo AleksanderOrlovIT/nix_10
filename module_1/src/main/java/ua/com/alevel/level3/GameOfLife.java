@@ -3,12 +3,13 @@ package ua.com.alevel.level3;
 import java.util.Scanner;
 
 public class GameOfLife {
+
     static int[][] array;
     static int[][] next_array;
     static int count = 0;
     static Scanner sc = new Scanner(System.in);
 
-    public static void GameOfLifeMain() {
+    public static void gameOfLifeMain() {
         int restart_programm;
         do {
             int line, column, repeat_action, change_element, zero_or_one_element;

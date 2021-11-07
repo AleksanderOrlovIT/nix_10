@@ -3,8 +3,10 @@ package ua.com.alevel.level1;
 import java.util.Scanner;
 
 public class TriangleArea {
+
     public static Scanner sc = new Scanner(System.in);
-    public static void TriangleAreaMain(){
+
+    public static void triangleAreaMain() {
         int temp;
         do {
             int nominator1, nominator2, nominator3, denominator1, denominator2, denominator3, slope1, slope2, slope3,
@@ -55,50 +57,49 @@ public class TriangleArea {
             System.out.println(area);
             System.out.println("Please press 1 if you want to restart the TriangleArea application," +
                     " otherwise press any other number");
-            while(!sc.hasNextInt()){
+            while (!sc.hasNextInt()) {
                 sc.next();
             }
             temp = sc.nextInt();
-        }while(temp == 1);
+        } while (temp == 1);
     }
 
 
-    public static void Inicialization(int[] arrayX, int[] arrayY){
+    public static void Inicialization(int[] arrayX, int[] arrayY) {
         System.out.println("Please input first point`s x");
-        while(!sc.hasNextInt()){
+        while (!sc.hasNextInt()) {
             sc.next();
         }
-        arrayX[0]= sc.nextInt();
+        arrayX[0] = sc.nextInt();
 
         System.out.println("Please input first point`s y");
-        while(!sc.hasNextInt()){
+        while (!sc.hasNextInt()) {
             sc.next();
         }
-        arrayY[0]= sc.nextInt();
+        arrayY[0] = sc.nextInt();
 
         System.out.println("Please input second point`s x");
-        while(!sc.hasNextInt()){
+        while (!sc.hasNextInt()) {
             sc.next();
         }
-        arrayX[1]= sc.nextInt();
+        arrayX[1] = sc.nextInt();
 
         System.out.println("Please input second point`s y");
-        while(!sc.hasNextInt()){
+        while (!sc.hasNextInt()) {
             sc.next();
         }
-        arrayY[1]= sc.nextInt();
+        arrayY[1] = sc.nextInt();
 
         System.out.println("Please input third point`s x");
-        while(!sc.hasNextInt()){
+        while (!sc.hasNextInt()) {
             sc.next();
         }
-        arrayX[2]= sc.nextInt();
+        arrayX[2] = sc.nextInt();
 
         System.out.println("Please input third point`s y");
-        while(!sc.hasNextInt()){
+        while (!sc.hasNextInt()) {
             sc.next();
         }
-        arrayY[2]= sc.nextInt();
+        arrayY[2] = sc.nextInt();
     }
-
 }

@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ChessHorse {
+
     public static Scanner sc = new Scanner(System.in);
     public static Scanner scanner = new Scanner(System.in);
     public static ArrayList<Integer> numberList = new ArrayList<>();
     public static ArrayList<String> letterList = new ArrayList<>();
 
-    public static void ChessHorseMain() {
+    public static void chessHorseMain() {
         int temp;
         do {
             int[][] chessBoard = new int[9][8];
@@ -63,7 +64,7 @@ public class ChessHorse {
                 sc.next();
             }
             temp = sc.nextInt();
-        }while(temp == 1);
+        } while (temp == 1);
     }
 
     public static void printMethod(int table[][]) {
