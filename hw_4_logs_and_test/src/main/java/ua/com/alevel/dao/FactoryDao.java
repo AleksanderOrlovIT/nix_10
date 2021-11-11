@@ -21,4 +21,20 @@ public class FactoryDao {
     public boolean existByFactoryName(String factoryName) {
         return FactoryDB.getInstance().factoryExistByName(factoryName);
     }
+
+    public String giveTypeByFactoryId(String factoryId){
+        return FactoryDB.getInstance().giveTypeByFactoryId(factoryId);
+    }
+
+    public int getCapacity(String factoryId){
+        return FactoryDB.getInstance().getCapacity(factoryId);
+    }
+
+    public int changeCapacity(String factoryId, int outlay){
+        return FactoryDB.getInstance().changeCapacity(factoryId, outlay);
+    }
+
+    public int returnCapacity(String factoryId, int newCapacity){
+        return FactoryDB.getInstance().returnCapacity(factoryId, newCapacity);
+    }
 }

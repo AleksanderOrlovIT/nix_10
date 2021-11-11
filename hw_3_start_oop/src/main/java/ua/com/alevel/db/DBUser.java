@@ -48,7 +48,6 @@ public class DBUser {
     public User findById(String id) {
         for (int i = 0; i < users.length; i++) {
             if (id.equals(String.valueOf(users[i].getId()))) return users[i];
-            else throw new RuntimeException("user not found");
         }
         return users[users.length];
     }

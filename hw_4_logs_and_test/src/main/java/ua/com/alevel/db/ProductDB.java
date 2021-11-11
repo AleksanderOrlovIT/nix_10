@@ -1,5 +1,6 @@
 package ua.com.alevel.db;
 
+import ua.com.alevel.entity.Factory;
 import ua.com.alevel.entity.Product;
 
 import java.util.Arrays;
@@ -37,15 +38,17 @@ public class ProductDB {
     public void update(Product product) {
         Product current = findByProductId(product.getProductId());
         current.setProductName(product.getProductName());
+        current.setProductType(product.getProductType());
         current.setOutlay(product.getOutlay());
     }
 
     public Product findByProductId(String productId) {
-        for (int i = 0; i < products.length; i++) {
-            if (productId.equals(String.valueOf(products[i].getProductId()))) return products[i];
-            else throw new RuntimeException("factory not found");
-        }
-        return products[products.length];
+        for (int i = 0; i < products.length; i++)
+            if (productId.equals(String.valueOf(products[i].getProductId()))) {
+                return products[i];
+            }
+        System.out.println("No product exist by id");
+        return null;
     }
 
     public Product[] findAllProducts() {
@@ -53,30 +56,39 @@ public class ProductDB {
     }
 
     public void delete(String productId) {
-        Product userToDelete = findByProductId(productId);
+        Product productToDelete = findByProductId(productId);
         int temp = -1;
         for (int i = 0; i < products.length; i++) {
-            if(products[i].getProductId().equals(String.valueOf(userToDelete.getProductId()))){
+            if(products[i].getProductId().equals(String.valueOf(productToDelete.getProductId()))){
                 products[i] = null;
                 temp = i;
             }
         }
         Product tempArray[] = new Product[products.length - 1];
-        for (int i = 0; i < temp; i++) {
+        for (int i = 0; i < temp; i++)
             tempArray[i] = products[i];
-        }
-        for (int i = temp; i < tempArray.length; i++) {
+        for (int i = temp; i < tempArray.length; i++)
             tempArray[i] = products[i+1];
-        }
         products = Arrays.copyOf(tempArray, products.length - 1);
     }
 
-    public boolean productExistByName(String factoryName) {
+    public boolean productExistByName(String productName) {
         for (int i = 0; i < products.length; i++) {
-            if (factoryName.equals(String.valueOf(products[i].getProductName()))) {
+            if (productName.equals(String.valueOf(products[i].getProductName()))) {
                 return true;
             }
         }
         return false;
+    }
+
+
+    public String giveTypeByProductId(String productId){
+        Product type = findByProductId(productId);
+        return type.getProductType();
+    }
+
+    public int getOutlay(String productId){
+        Product outlay = findByProductId(productId);
+        return outlay.getOutlay();
     }
 }

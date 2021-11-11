@@ -21,4 +21,12 @@ public class ProductDao {
     public boolean existByFactoryName(String productName) {
         return ProductDB.getInstance().productExistByName(productName);
     }
+
+    public String giveTypeByProductId(String productId){
+        return ProductDB.getInstance().giveTypeByProductId(productId);
+    }
+
+    public int getOutlay(String productId){
+        return ProductDB.getInstance().getOutlay(productId);
+    }
 }

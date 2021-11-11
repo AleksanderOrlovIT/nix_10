@@ -3,6 +3,7 @@ package ua.com.alevel.entity;
 public class Factory {
     private String factoryName;
     private String factoryId;
+    private String factoryType;
     private int capacity;
 
     public String getFactoryName() {
@@ -29,11 +30,16 @@ public class Factory {
         return capacity;
     }
 
+    public String getFactoryType() {return factoryType;}
+
+    public void setFactoryType(String factoryType) {this.factoryType = factoryType;}
+
     @Override
     public String toString() {
         return "Factory{" +
                 "factoryName='" + factoryName + '\'' +
                 ", factoryId='" + factoryId + '\'' +
+                ", typeProducts='" + factoryType + '\'' +
                 ", capacity=" + capacity +
                 '}';
     }
