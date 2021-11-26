@@ -3,7 +3,6 @@ package ua.com.alevel.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import ua.com.alevel.entity.Factory;
 import ua.com.alevel.entity.Product;
 
 public class ProductServiceTest {
